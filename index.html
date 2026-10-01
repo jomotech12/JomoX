@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>JomoTech12</title>
+<style>
+:root{--bg:#f4f7fc;--card:#fff;--ink:#0a1020;--mute:#56627a;--blue:#1560ff;--blue2:#0b3fb8;--line:#dbe3f2;--dark:#070b16;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a0f1c;--card:#121a2c;--ink:#f2f5fb;--mute:#9aa6bf;--line:#223050}}
+:root[data-theme="dark"]{--bg:#0a0f1c;--card:#121a2c;--ink:#f2f5fb;--mute:#9aa6bf;--line:#223050}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--dark);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:10px 16px}
+.logo{font-weight:800;font-size:22px;letter-spacing:.3px;cursor:pointer}.logo b{color:#4d8dff}
+.menu{background:none;border:1px solid #33415f;color:#fff;border-radius:8px;font-size:22px;padding:2px 12px;cursor:pointer}
+nav{display:none;position:sticky;top:56px;z-index:4;background:var(--dark);padding:6px 16px 14px}
+nav.open{display:block}
+nav a{display:block;color:#dbe6ff;padding:12px 4px;border-bottom:1px solid #1c2740;cursor:pointer;font-weight:600}
+nav a.on{color:#4d8dff}
+@media(min-width:820px){.menu{display:none}nav{display:flex;gap:4px;top:56px;padding:0 16px;flex-wrap:wrap}nav a{border:0;padding:10px 12px}}
+main{max-width:1000px;margin:0 auto;padding:16px 16px 90px}
+section{display:none}section.on{display:block}
+h1{font-size:30px;line-height:1.15;margin:0 0 10px}h2{margin:6px 0 4px}p{margin:6px 0}
+.mute{color:var(--mute)}
+.hero{background:linear-gradient(135deg,#050a18,#0b3fb8 70%,#1560ff);color:#fff;border-radius:18px;padding:26px 20px;margin-bottom:18px}
+.hero h1 span{color:#9cc0ff}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:12px;padding:13px 18px;font:inherit;font-weight:700;cursor:pointer;text-decoration:none;margin:4px 6px 4px 0}
+.b1{background:var(--blue);color:#fff}.b2{background:#fff;color:#0a1020}.wa{background:#1fa855;color:#fff}.b3{background:transparent;color:var(--ink);border:2px solid var(--line)}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
+.card .ic{font-size:34px}.card h3{margin:6px 0 2px;font-size:18px}
+.price{font-weight:800;color:var(--blue)}
+label{display:block;font-weight:600;margin:12px 0 4px}
+input,select,textarea{width:100%;padding:13px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit}
+textarea{min-height:110px}
+.tabs{display:flex;gap:8px;margin:10px 0;flex-wrap:wrap}.tabs button{border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:20px;padding:8px 14px;font:inherit;font-weight:600;cursor:pointer}.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.note{background:var(--card);border-left:4px solid var(--blue);padding:10px 12px;border-radius:8px;margin:12px 0;font-size:14px}
+.msg{font-weight:700;color:#1fa855;margin-top:10px}
+.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:6;background:#1fa855;color:#fff;border-radius:30px;padding:14px 18px;font-weight:800;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.3)}
+footer{text-align:center;color:var(--mute);font-size:13px;padding:20px 16px 90px}
+</style>
+</head>
+<body>
+<header><div class="logo" data-go="home">Jomo<b>Tech</b>12</div><div style="display:flex;gap:8px;align-items:center"><select id="lang" aria-label="Language" style="width:auto;background:#0a1020;color:#fff;border:1px solid #33415f;padding:6px;font-size:14px"><option value="fr">Français</option><option value="ht">Kreyòl</option><option value="en">English</option></select><button class="menu" id="mb" aria-label="Menu">☰</button></div></header>
+<nav id="nav">
+<a data-go="home">🏠 Home</a><a data-go="services">🛠️ Services</a><a data-go="store">🛒 Store</a><a data-go="local">🌴 Local Products</a><a data-go="training">🎓 Training</a><a data-go="request">📝 Request a Service</a><a data-go="account">👤 My Account</a><a data-go="about">ℹ️ About & Contact</a>
+</nav>
+<main>
+
+<section id="home">
+<div class="hero"><h1>Jomo<span>Tech</span>12</h1><p style="font-size:18px">Phone unlocking, computer help, graphic design, training and more. Fast, honest, professional.</p>
+<a class="btn wa" data-wa="Hello JomoTech12, I need help.">💬 WhatsApp us</a><a class="btn b2" data-go="request">📝 Request a service</a></div>
+<h2>What we do</h2><div class="grid" id="homeSvc"></div>
+<h2 style="margin-top:20px">Contact us now</h2>
+<a class="btn wa" data-wa="Hello JomoTech12!">💬 WhatsApp</a><a class="btn b1" href="tel:+50936509477">📞 Call 36509477</a><a class="btn b3" href="mailto:businesseyaya@gmail.com">✉️ Email</a>
+</section>
+
+<section id="services"><h1>Our Services</h1><p class="mute">Tap a service to ask for it.</p><div class="grid" id="svcList"></div>
+<h2 style="margin-top:22px">📱 Phone unlocking / decoding</h2>
+<div class="card"><p>We unlock and decode phones so you can use any SIM card or recover access. Bring your phone or contact us on WhatsApp with the brand and model.</p><ul><li>Network / SIM unlock</li><li>Forgotten code or pattern help</li><li>Software problems</li></ul><p class="mute">Note: you must be the owner of the phone.</p></div>
+<h2 style="margin-top:18px">💻 Computer services</h2>
+<div class="card"><ul><li>Repair and cleaning</li><li>Windows install, updates, virus removal</li><li>Software and office programs</li><li>Data backup and recovery</li></ul></div>
+<h2 style="margin-top:18px">🎨 Graphic design</h2>
+<div class="card"><ul><li>Logos and business cards</li><li>Flyers, posters, banners</li><li>Social media designs</li><li>Menus and invitations</li></ul><a class="btn b1" data-req="Graphic design">Request design</a></div>
+</section>
+
+<section id="store"><h1>🛒 Store</h1><div class="note">Sample products. Prices and stock are confirmed on WhatsApp. No online payment: you pay when you receive your order.</div><div class="tabs" id="stTabs"></div><div class="grid" id="stGrid"></div></section>
+
+<section id="local"><h1>🌴 Local Products</h1><p class="mute">Products from Haiti. Ask us for availability.</p><div class="grid" id="lcGrid"></div></section>
+
+<section id="training"><h1>🎓 Training</h1><div class="tabs"><button class="on" data-tr="all">All</button><button data-tr="Online">Online</button><button data-tr="In-person">In-person</button></div><div class="grid" id="trGrid"></div></section>
+
+<section id="request"><h1>📝 Request a Service</h1><p class="mute">Fill the form, then send it by WhatsApp or email.</p>
+<div class="card"><label for="rn">Your name</label><input id="rn" autocomplete="name">
+<label for="rp">Phone number</label><input id="rp" type="tel" autocomplete="tel">
+<label for="rs">Service needed</label><select id="rs"></select>
+<label for="rd">Describe what you need</label><textarea id="rd" placeholder="Example: iPhone 11 locked, I forgot the code"></textarea>
+<div id="rerr" style="color:#e5484d;font-weight:600;margin-top:8px"></div>
+<p><button class="btn wa" id="sendWa">💬 Send by WhatsApp</button><button class="btn b1" id="sendMail">✉️ Send by Email</button></p></div></section>
+
+<section id="account"><h1>👤 My Account</h1>
+<div id="accOut"><div class="tabs"><button class="on" data-ac="reg">Register</button><button data-ac="log">Sign in</button></div>
+<div class="card" id="regBox"><label for="gn">Full name</label><input id="gn"><label for="gp">Phone number</label><input id="gp" type="tel"><label for="ge">Email (optional)</label><input id="ge" type="email"><label for="gc">City</label><input id="gc">
+<p><button class="btn b1" id="regBtn">Create my profile</button></p></div>
+<div class="card" id="logBox" style="display:none"><label for="lp">Phone number you registered with</label><input id="lp" type="tel"><p><button class="btn b1" id="logBtn">Sign in</button></p></div>
+<div id="aerr" style="color:#e5484d;font-weight:600;margin-top:8px"></div>
+<p class="note">Your profile is saved only on this device and is not shared with anyone. No password needed.</p></div>
+<div id="accIn" style="display:none"></div></section>
+
+<section id="about"><h1>About JomoTech12</h1>
+<div class="card"><p>JomoTech12 is a technology and business service in Haiti. We help people and businesses with phones, computers, design, training and quality products. Our goal: simple, honest and fast service.</p></div>
+<h2 style="margin-top:18px">Contact</h2>
+<div class="grid"><div class="card"><div class="ic">💬</div><h3>WhatsApp</h3><p>36509477<br>33720592</p><a class="btn wa" data-wa="Hello JomoTech12!">Open WhatsApp</a></div>
+<div class="card"><div class="ic">📞</div><h3>Phone</h3><p>36509477<br>33720592</p><a class="btn b1" href="tel:+50936509477">Call 36509477</a><a class="btn b3" href="tel:+50933720592">Call 33720592</a></div>
+<div class="card"><div class="ic">✉️</div><h3>Email</h3><p>businesseyaya@gmail.com</p><a class="btn b1" href="mailto:businesseyaya@gmail.com">Send email</a></div></div></section>
+</main>
+<footer>© JomoTech12 · businesseyaya@gmail.com · 36509477 / 33720592</footer>
+<a class="fab" data-wa="Hello JomoTech12!">💬 WhatsApp</a>
+
+<script>
+var WA="50936509477",MAIL="businesseyaya@gmail.com";
+var S=[["📱","Phone unlocking / decoding","Unlock and decode your phone."],["💻","Computer services","Repair, install, virus removal."],["🎨","Graphic design","Logos, flyers, posters."],["🌐","Online training","Learn from home."],["🏫","In-person training","Classes with a teacher."],["🌴","Local products","Quality products from Haiti."],["🛒","Store","Phones, accessories, computers."]];
+var SN=["Phone unlocking / decoding","Computer services","Graphic design","Online training","In-person training","Local products","Store order"];
+var P=[["Phone accessories","🔌","USB charger + cable","1,000 HTG"],["Phone accessories","🎧","Earphones","750 HTG"],["Phone accessories","🛡️","Phone case + screen glass","1,200 HTG"],["Phones","📱","Used smartphone (checked)","Ask price"],["Computers","💻","Used laptop (checked)","Ask price"],["Computers","🖱️","Wireless mouse","900 HTG"],["Computers","💾","USB flash drive 32GB","1,100 HTG"],["Computers","🔋","Power bank 10000mAh","2,000 HTG"]];
+var L=[["☕","Haitian coffee","Roasted local coffee","Ask price"],["🍫","Local chocolate","Pure cacao","Ask price"],["🌶️","Pikliz and spices","Homemade","Ask price"],["🥜","Peanut butter (manba)","Local, fresh","Ask price"],["🧴","Natural oils","Coconut and castor oil","Ask price"],["🎨","Handmade crafts","Art and gifts","Ask price"]];
+var T=[["Online","💻","Computer basics","Windows, Word, Excel, internet."],["Online","🎨","Graphic design starter","Make logos and flyers."],["Online","📱","Phone and social media","Use your phone for business."],["In-person","🖥️","Computer class","Practice with a teacher."],["In-person","🔧","Phone repair basics","Hands-on learning."],["In-person","🧾","Office skills","Documents, email, printing."]];
+function $(i){return document.getElementById(i)}
+function wa(t){window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(t),"_blank")}
+function go(id){document.querySelectorAll("main section").forEach(function(s){s.classList.toggle("on",s.id===id)});document.querySelectorAll("nav a").forEach(function(a){a.classList.toggle("on",a.dataset.go===id)});$("nav").classList.remove("open");window.scrollTo(0,0)}
+function req(svc){go("request");$("rs").value=svc;fillMe()}
+function card(i,t,d,extra){return '<div class="card"><div class="ic">'+i+'</div><h3>'+t+'</h3><p class="mute">'+d+'</p>'+(extra||"")+'</div>'}
+S.forEach(function(s,k){var go_=["services","services","services","training","training","local","store"][k];
+$("homeSvc").insertAdjacentHTML("beforeend",'<div class="card" style="cursor:pointer" data-go="'+go_+'"><div class="ic">'+s[0]+'</div><h3>'+s[1]+'</h3><p class="mute">'+s[2]+'</p></div>');
+$("svcList").insertAdjacentHTML("beforeend",card(s[0],s[1],s[2],'<a class="btn b1" data-req="'+SN[k]+'">Request</a>'))});
+SN.forEach(function(n){$("rs").insertAdjacentHTML("beforeend",'<option value="'+n+'">'+n+"</option>")});
+function prod(p){return card(p[1],p[2],p[3]==="Ask price"?"Price on request":"Sample price",'<p class="price">'+p[3]+'</p><a class="btn wa" data-order="'+p[2]+'">Order on WhatsApp</a>')}
+var cats=["All"].concat(P.map(function(p){return p[0]}).filter(function(v,i,a){return a.indexOf(v)===i})),cur="All";
+function drawStore(){$("stTabs").innerHTML=cats.map(function(c){return '<button class="'+(c===cur?"on":"")+'" data-cat="'+c+'">'+c+'</button>'}).join("");$("stGrid").innerHTML=P.filter(function(p){return cur==="All"||p[0]===cur}).map(prod).join("")}
+drawStore();
+$("lcGrid").innerHTML=L.map(function(l){return prod(["",l[0],l[1],l[3]]).replace("Price on request",l[2])}).join("");
+function drawTr(f){$("trGrid").innerHTML=T.filter(function(t){return f==="all"||t[0]===f}).map(function(t){return card(t[2]&&t[1],t[2],t[3],'<p><b>'+t[0]+'</b></p><a class="btn b1" data-join="'+t[2]+' ('+t[0]+')">Ask to join</a>')}).join("")}
+drawTr("all");
+function me(){try{return JSON.parse(localStorage.getItem("jt12_me"))}catch(e){return null}}
+function save(o){try{localStorage.setItem("jt12_me",JSON.stringify(o))}catch(e){}}
+function fillMe(){var m=me();if(m){if(!$("rn").value)$("rn").value=m.name;if(!$("rp").value)$("rp").value=m.phone}}
+function drawAcc(){var m=me(),on=m&&m.in;$("accOut").style.display=on?"none":"block";$("accIn").style.display=on?"block":"none";
+if(on)$("accIn").innerHTML='<div class="card"><div class="ic">👤</div><h2>Welcome, '+esc(m.name)+'</h2><p>📞 '+esc(m.phone)+'</p>'+(m.email?'<p>✉️ '+esc(m.email)+'</p>':'')+(m.city?'<p>📍 '+esc(m.city)+'</p>':'')+'<p><button class="btn b1" data-go="request">Request a service</button><button class="btn b3" id="outBtn">Sign out</button></p></div>'}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function msg(){var n=$("rn").value.trim(),p=$("rp").value.trim(),s=$("rs").value,d=$("rd").value.trim();
+if(!n||!p||!d){$("rerr").textContent="Please fill your name, phone and description.";return null}$("rerr").textContent="";
+return "JomoTech12 service request\nName: "+n+"\nPhone: "+p+"\nService: "+s+"\nDescription: "+d}
+document.addEventListener("click",function(e){var t=e.target.closest("[data-go],[data-wa],[data-req],[data-order],[data-join],[data-cat],[data-tr],[data-ac],#outBtn");if(!t)return;
+var d=t.dataset;if(d.go){e.preventDefault();go(d.go)}else if(d.wa!==undefined)wa(d.wa);else if(d.req)req(d.req);
+else if(d.order)wa("Hello JomoTech12, I want to order: "+d.order);else if(d.join)wa("Hello JomoTech12, I want to join this training: "+d.join);
+else if(d.cat){cur=d.cat;drawStore()}else if(d.tr){document.querySelectorAll("[data-tr]").forEach(function(b){b.classList.toggle("on",b===t)});drawTr(d.tr)}
+else if(d.ac){document.querySelectorAll("[data-ac]").forEach(function(b){b.classList.toggle("on",b===t)});$("regBox").style.display=d.ac==="reg"?"block":"none";$("logBox").style.display=d.ac==="log"?"block":"none";$("aerr").textContent=""}
+else if(t.id==="outBtn"){var m=me();if(m){m.in=false;save(m)}drawAcc()}});
+$("mb").onclick=function(){$("nav").classList.toggle("open")};
+$("sendWa").onclick=function(){var m=msg();if(m)wa(m)};
+$("sendMail").onclick=function(){var m=msg();if(m)location.href="mailto:"+MAIL+"?subject="+encodeURIComponent("Service request - "+$("rs").value)+"&body="+encodeURIComponent(m)};
+$("regBtn").onclick=function(){var n=$("gn").value.trim(),p=$("gp").value.trim();if(!n||!p){$("aerr").textContent="Please enter your name and phone number.";return}
+save({name:n,phone:p,email:$("ge").value.trim(),city:$("gc").value.trim(),in:true});$("aerr").textContent="";drawAcc();fillMe()};
+$("logBtn").onclick=function(){var m=me(),p=$("lp").value.trim();if(m&&m.phone===p){m.in=true;save(m);$("aerr").textContent="";drawAcc();fillMe()}else $("aerr").textContent="No profile found with this number on this device. Please register."};
+drawAcc();fillMe();go("home");
+var D={},raw=`Home|Accueil|Akèy
+Services|Services|Sèvis
+Store|Boutique|Magazen
+Local Products|Produits locaux|Pwodui lokal
+Training|Formations|Fòmasyon
+Request a Service|Demander un service|Mande yon sèvis
+My Account|Mon compte|Kont mwen
+About & Contact|À propos et contact|Konsènan nou ak kontak
+Phone unlocking, computer help, graphic design, training and more. Fast, honest, professional.|Déblocage de téléphones, aide informatique, graphisme, formations et plus. Rapide, honnête, professionnel.|Debloke telefòn, èd òdinatè, grafik design, fòmasyon ak plis ankò. Rapid, onèt, pwofesyonèl.
+WhatsApp us|Écrivez-nous sur WhatsApp|Ekri nou sou WhatsApp
+Request a service|Demander un service|Mande yon sèvis
+What we do|Ce que nous faisons|Sa nou fè
+Contact us now|Contactez-nous|Kontakte nou kounye a
+Call 36509477|Appeler 36509477|Rele 36509477
+Call 33720592|Appeler 33720592|Rele 33720592
+Email|E-mail|Imèl
+Phone unlocking / decoding|Déblocage / décodage de téléphones|Debloke / dekode telefòn
+Unlock and decode your phone.|Débloquez et décodez votre téléphone.|Debloke ak dekode telefòn ou.
+Computer services|Services informatiques|Sèvis òdinatè
+Repair, install, virus removal.|Réparation, installation, suppression de virus.|Reparasyon, enstalasyon, retire viris.
+Graphic design|Graphisme|Grafik design
+Logos, flyers, posters.|Logos, flyers, affiches.|Logo, flyers, afich.
+Online training|Formation en ligne|Fòmasyon sou entènèt
+Learn from home.|Apprenez depuis chez vous.|Aprann lakay ou.
+In-person training|Formation en présentiel|Fòmasyon an pèsòn
+Classes with a teacher.|Cours avec un professeur.|Kou ak yon pwofesè.
+Local products|Produits locaux|Pwodui lokal
+Quality products from Haiti.|Produits de qualité d'Haïti.|Pwodui kalite ki sòti Ayiti.
+Phones, accessories, computers.|Téléphones, accessoires, ordinateurs.|Telefòn, akseswa, òdinatè.
+Our Services|Nos services|Sèvis nou yo
+Tap a service to ask for it.|Touchez un service pour le demander.|Peze sou yon sèvis pou mande l.
+Request|Demander|Mande
+We unlock and decode phones so you can use any SIM card or recover access. Bring your phone or contact us on WhatsApp with the brand and model.|Nous débloquons et décodons les téléphones pour utiliser n'importe quelle carte SIM ou retrouver l'accès. Apportez votre téléphone ou écrivez-nous sur WhatsApp avec la marque et le modèle.|Nou debloke ak dekode telefòn pou ou ka itilize nenpòt kat SIM oswa jwenn aksè ankò. Pote telefòn ou oswa ekri nou sou WhatsApp ak mak ak modèl la.
+Network / SIM unlock|Déblocage réseau / SIM|Debloke rezo / SIM
+Forgotten code or pattern help|Aide si code ou schéma oublié|Èd si ou bliye kòd oswa modèl
+Software problems|Problèmes de logiciel|Pwoblèm lojisyèl
+Note: you must be the owner of the phone.|Note : vous devez être le propriétaire du téléphone.|Nòt: ou dwe se mèt telefòn lan.
+Repair and cleaning|Réparation et nettoyage|Reparasyon ak netwayaj
+Windows install, updates, virus removal|Installation de Windows, mises à jour, suppression de virus|Enstale Windows, mizajou, retire viris
+Software and office programs|Logiciels et programmes bureautiques|Lojisyèl ak pwogram biwo
+Data backup and recovery|Sauvegarde et récupération de données|Sovgad ak rekipere done
+Logos and business cards|Logos et cartes de visite|Logo ak kat biznis
+Flyers, posters, banners|Flyers, affiches, bannières|Flyers, afich, banyè
+Social media designs|Designs pour réseaux sociaux|Design pou rezo sosyal
+Menus and invitations|Menus et invitations|Meni ak envitasyon
+Request design|Demander un design|Mande yon design
+Store order|Commande boutique|Kòmand magazen
+Sample products. Prices and stock are confirmed on WhatsApp. No online payment: you pay when you receive your order.|Produits d'exemple. Prix et stock confirmés sur WhatsApp. Pas de paiement en ligne : vous payez à la réception.|Egzanp pwodui. Nou konfime pri ak stòk sou WhatsApp. Pa gen peman sou entènèt: ou peye lè ou resevwa kòmand lan.
+All|Tout|Tout
+Phone accessories|Accessoires téléphone|Akseswa telefòn
+Phones|Téléphones|Telefòn
+Computers|Ordinateurs|Òdinatè
+USB charger + cable|Chargeur USB + câble|Chajè USB + kab
+Earphones|Écouteurs|Ekoutè
+Phone case + screen glass|Coque + verre de protection|Kouvèti + vit pwoteksyon
+Used smartphone (checked)|Smartphone d'occasion (vérifié)|Smartphone itilize (verifye)
+Used laptop (checked)|Ordinateur portable d'occasion (vérifié)|Laptòp itilize (verifye)
+Wireless mouse|Souris sans fil|Sourit san fil
+USB flash drive 32GB|Clé USB 32 Go|Kle USB 32GB
+Power bank 10000mAh|Batterie externe 10000mAh|Batri ekstèn 10000mAh
+Ask price|Demander le prix|Mande pri a
+Price on request|Prix sur demande|Pri sou demann
+Sample price|Prix d'exemple|Pri egzanp
+Order on WhatsApp|Commander sur WhatsApp|Kòmande sou WhatsApp
+Products from Haiti. Ask us for availability.|Produits d'Haïti. Demandez-nous la disponibilité.|Pwodui ki sòti Ayiti. Mande nou si yo disponib.
+Haitian coffee|Café haïtien|Kafe ayisyen
+Roasted local coffee|Café local torréfié|Kafe lokal griye
+Local chocolate|Chocolat local|Chokola lokal
+Pure cacao|Cacao pur|Kakao pi
+Pikliz and spices|Pikliz et épices|Pikliz ak epis
+Homemade|Fait maison|Fèt lakay
+Peanut butter (manba)|Beurre de cacahuète (manba)|Manba
+Local, fresh|Local, frais|Lokal, fre
+Natural oils|Huiles naturelles|Lwil natirèl
+Coconut and castor oil|Huile de coco et de ricin|Lwil kokoye ak lwil maskreti
+Handmade crafts|Artisanat|Atizana
+Art and gifts|Art et cadeaux|Atizay ak kado
+Online|En ligne|Sou entènèt
+In-person|En présentiel|An pèsòn
+Computer basics|Bases de l'informatique|Baz òdinatè
+Windows, Word, Excel, internet.|Windows, Word, Excel, internet.|Windows, Word, Excel, entènèt.
+Graphic design starter|Initiation au graphisme|Kòmanse grafik design
+Make logos and flyers.|Créez des logos et des flyers.|Fè logo ak flyers.
+Phone and social media|Téléphone et réseaux sociaux|Telefòn ak rezo sosyal
+Use your phone for business.|Utilisez votre téléphone pour votre commerce.|Itilize telefòn ou pou biznis ou.
+Computer class|Cours d'informatique|Kou òdinatè
+Practice with a teacher.|Pratiquez avec un professeur.|Pratike ak yon pwofesè.
+Phone repair basics|Bases de la réparation de téléphones|Baz reparasyon telefòn
+Hands-on learning.|Apprentissage pratique.|Aprantisaj pratik.
+Office skills|Compétences de bureau|Konpetans biwo
+Documents, email, printing.|Documents, e-mail, impression.|Dokiman, imèl, enprime.
+Ask to join|Demander à s'inscrire|Mande pou enskri
+Fill the form, then send it by WhatsApp or email.|Remplissez le formulaire, puis envoyez-le par WhatsApp ou e-mail.|Ranpli fòm lan, apre voye l sou WhatsApp oswa imèl.
+Your name|Votre nom|Non ou
+Phone number|Numéro de téléphone|Nimewo telefòn
+Service needed|Service souhaité|Sèvis ou bezwen
+Describe what you need|Décrivez votre besoin|Di nou sa ou bezwen
+Send by WhatsApp|Envoyer par WhatsApp|Voye sou WhatsApp
+Send by Email|Envoyer par e-mail|Voye pa imèl
+Please fill your name, phone and description.|Veuillez remplir votre nom, téléphone et description.|Tanpri ranpli non ou, telefòn ou ak deskripsyon an.
+Register|Inscription|Enskripsyon
+Sign in|Connexion|Konekte
+Full name|Nom complet|Non konplè
+Email (optional)|E-mail (facultatif)|Imèl (si ou vle)
+City|Ville|Vil
+Create my profile|Créer mon profil|Kreye pwofil mwen
+Phone number you registered with|Numéro avec lequel vous vous êtes inscrit|Nimewo ou te enskri a
+Your profile is saved only on this device and is not shared with anyone. No password needed.|Votre profil est enregistré seulement sur cet appareil et n'est partagé avec personne. Pas de mot de passe.|Pwofil ou sere sèlman sou aparèy sa a epi nou pa pataje l ak pesonn. Pa gen modpas.
+Please enter your name and phone number.|Veuillez entrer votre nom et numéro de téléphone.|Tanpri antre non ou ak nimewo telefòn ou.
+No profile found with this number on this device. Please register.|Aucun profil trouvé avec ce numéro sur cet appareil. Veuillez vous inscrire.|Pa gen pwofil ak nimewo sa a sou aparèy sa a. Tanpri enskri.
+Sign out|Se déconnecter|Dekonekte
+Welcome|Bienvenue|Byenveni
+About JomoTech12|À propos de JomoTech12|Konsènan JomoTech12
+JomoTech12 is a technology and business service in Haiti. We help people and businesses with phones, computers, design, training and quality products. Our goal: simple, honest and fast service.|JomoTech12 est un service de technologie et de commerce en Haïti. Nous aidons les particuliers et les entreprises avec les téléphones, ordinateurs, design, formations et produits de qualité. Notre objectif : un service simple, honnête et rapide.|JomoTech12 se yon sèvis teknoloji ak komès an Ayiti. Nou ede moun ak biznis ak telefòn, òdinatè, design, fòmasyon ak pwodui kalite. Objektif nou: yon sèvis senp, onèt ak rapid.
+Contact|Contact|Kontak
+Phone|Téléphone|Telefòn
+Open WhatsApp|Ouvrir WhatsApp|Louvri WhatsApp
+Send email|Envoyer un e-mail|Voye yon imèl`;
+raw.split("\n").forEach(function(l){var a=l.split("|");if(a.length===3)D[a[0]]={fr:a[1],ht:a[2]}});
+var PH="Example: iPhone 11 locked, I forgot the code";
+D[PH]={fr:"Exemple : iPhone 11 bloqué, j'ai oublié le code",ht:"Egzanp: iPhone 11 bloke, mwen bliye kòd la"};
+var LG="fr";try{LG=localStorage.getItem("jt12_lang")||"fr"}catch(e){}
+function tx(k){var d=D[k];return LG==="en"||!d?k:d[LG]}
+function tr(){document.documentElement.lang=LG;$("rd").placeholder=tx(PH);
+var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT),n;
+while(n=w.nextNode()){var tg=n.parentNode.tagName;if(tg==="SCRIPT"||tg==="STYLE")continue;
+if(n.__o===undefined)n.__o=n.nodeValue;
+var m=n.__o.match(/^([\p{Extended_Pictographic}\uFE0F\u200D\s]*)([\s\S]*?)(\s*)$/u);if(!m||!m[2])continue;
+var k=m[2],o=/^Welcome, /.test(k)?tx("Welcome")+", "+k.slice(9):tx(k),v=m[1]+o+m[3];
+if(n.nodeValue!==v)n.nodeValue=v}}
+$("lang").value=LG;
+$("lang").onchange=function(){LG=this.value;try{localStorage.setItem("jt12_lang",LG)}catch(e){}tr()};
+new MutationObserver(tr).observe(document.body,{childList:true,subtree:true});
+tr();
+
+</script>
+</body>
+</html>
